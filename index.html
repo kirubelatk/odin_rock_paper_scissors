@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <button id="but1" onclick="playRound('rock')"> Rock</button>
+    <button id="but2" onclick="playRound('paper')"> Paper</button>
+    <button id="but3" onclick="playRound('scissors')"> Scissors</button>
+    <div id="dis"></div>
    <script>
     let humanScore = 0;
     let computerScore = 0;
@@ -26,18 +31,8 @@
     }
 
     function getHumanChoice(x) {
-        if (x == 1) {
-            console.log("Player chose rock");
-            return "rock";
-        } else if (x == 2) {
-            console.log("Player chose paper");
-            return "paper";
-        } else if (x == 0) {
-            console.log("Player chose scissors");
-            return "scissors";
-        } else {
-            alert("invalid input");
-        }
+        console.log("You chose " + x);
+        return x;
     }
 
     function logic(playerChoice, computerChoice) {
@@ -71,23 +66,23 @@
             console.log("invalid input");
         }
     }
-    function playRound(){
-        let userInput = parseInt(prompt("Enter 0 for rock, 1 for paper, 2 for scissors"));
-
+    function playRound(userInput){
+        
 let humanChoice = getHumanChoice(userInput);
 let computerChoice = getComputerChoice(Math.floor(Math.random() * 3));
       logic(humanChoice, computerChoice);
-    console.log("Round " + humanScore + " vs. " + computerScore);
+      let dis = document.querySelector("#dis");
+    dis.innerHTML =("Round " + humanScore + " vs. " + computerScore);
     }
 
     
-function playGame(){
-    for(let i=0;i<5;i++){
+/*function playGame(){
+    
        playRound()
 }
 }
 playGame()
-    
+ */   
    </script> 
 </body>
 </html>
