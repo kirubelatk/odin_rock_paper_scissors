@@ -8,4 +8,49 @@ color: white;
 font-size: 20px;
 font-family: 'Courier New', Courier, monospace;
 }
-
+div{
+    font-size: larger;
+}
+.all{
+    display: flex;
+    flex-direction: column;
+   gap: 45px;
+    
+}
+.img{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+.imcont{
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 200px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+.im{
+    width: 200px;
+    height: 250px; 
+}
+.butt{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+.choice{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+.results{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

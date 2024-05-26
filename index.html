@@ -7,23 +7,52 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <button id="but1" onclick="playRound('rock')"> Rock</button>
-    <button id="but2" onclick="playRound('paper')"> Paper</button>
-    <button id="but3" onclick="playRound('scissors')"> Scissors</button>
-    <div id="dis"></div>
+    <div class="all">
+        <div class="img">
+            <div class = 'imcont'>
+                <img class="im" src="rock.jpg" alt=""> 
+    
+            </div>
+            <div class = 'imcont'>  <img class="im" src="paper.jpg" alt="">
+            </div>
+            <div class = 'imcont'>
+                <img class="im" src="scissors.jpg" alt="">
+            </div>
+            
+           
+            
+        </div>
+        <div class = 'butt'>
+            <button id="but1" onclick="playRound('rock')"> Rock</button>
+            <button id="but2" onclick="playRound('paper')"> Paper</button>
+            <button id="but3" onclick="playRound('scissors')"> Scissors</button>
+        </div>
+        <div class="choice">
+            <div id="com"></div>
+            <div id="rhum"></div>
+        </div>
+    
+        <div class="results">
+            <div id="hum"></div>
+            <div id='choice'></div>
+            <div id="dis"></div>
+        </div>
+    </div>
+    
+    
    <script>
     let humanScore = 0;
     let computerScore = 0;
-
+let com = document.querySelector("#com");
     function getComputerChoice(x) {
         if (x == 1) {
-            console.log("Computer chose rock");
+            com.innerHTML =("Computer chose rock");
             return "rock";
         } else if (x == 2) {
-            console.log("Computer chose paper");
+            com.innerHTML = ("Computer chose paper");
             return "paper";
         } else if (x == 0) {
-            console.log("Computer chose scissors");
+            com.innerHTML =("Computer chose scissors");
             return "scissors";
         } else {
             alert("invalid input");
@@ -35,54 +64,63 @@
         return x;
     }
 
-    function logic(playerChoice, computerChoice) {
+let choicee = document.querySelector("#choice");
+let hum = document.querySelector("#hum");
+    
+function logic(playerChoice, computerChoice) {
         if (playerChoice == computerChoice) {
-            console.log("Tie");
+           choicee.innerHTML =("Tie");
         } else if (playerChoice == "rock" && computerChoice == "scissors") {
-            console.log("Rock beats scissors");
-            console.log("You win this round");
+            hum.innerHTML=("Rock beats scissors" );
+            choicee.innerHTML = ("You win this round");
             humanScore++;
         } else if (playerChoice == "rock" && computerChoice == "paper") {
-            console.log("Paper beats rock");
-            console.log("You lose this round");
+            hum.innerHTML=("Paper beats rock");
+            choicee.innerHTML =("You lose this round");
             computerScore++;
         } else if (playerChoice == "paper" && computerChoice == "rock") {
-            console.log("Paper beats rock");
-            console.log("You win this round");
+            hum.innerHTML=("Paper beats rock");
+           choicee.innerHTML = ("You win this round");
             humanScore++;
         } else if (playerChoice == "paper" && computerChoice == "scissors") {
-            console.log("Scissors beats paper");
-            console.log("You lose this round");
+            hum.innerHTML =("Scissors beats paper");
+            choicee.innerHTML=("You lose this round");
             computerScore++;
         } else if (playerChoice == "scissors" && computerChoice == "rock") {
-            console.log("Rock beats scissors");
-            console.log("You lose this round");
+            hum.innerHTML=("Rock beats scissors");
+            choicee.innerHTML =("You lose this round");
             computerScore++;
         } else if (playerChoice == "scissors" && computerChoice == "paper") {
-            console.log("Scissors beats paper");
-            console.log("You win this round");
+            hum.innerHTML=("Scissors beats paper");
+            choicee.innerHTML =("You win this round");
             humanScore++;
         } else {
-            console.log("invalid input");
+            choicee.innerHTML = ("invalid input");
         }
     }
     function playRound(userInput){
         
 let humanChoice = getHumanChoice(userInput);
+rhum.innerHTML= ("You chose " + humanChoice);
 let computerChoice = getComputerChoice(Math.floor(Math.random() * 3));
-      logic(humanChoice, computerChoice);
+     if (humanScore < 5 && computerScore < 5){
+        logic(humanChoice, computerChoice);
       let dis = document.querySelector("#dis");
     dis.innerHTML =("Round " + humanScore + " vs. " + computerScore);
+     }
+     else{
+        dis.innerHTML =("Final Score " + humanScore + " vs. " + computerScore);
+        if (humanScore > computerScore){
+            dis.innerHTML =("You won the game!");
+     }
+     else {
+        dis.innerHTML =("You lost the game!");
+     }
+     
     }
-
+    }
     
-/*function playGame(){
-    
-       playRound()
-}
-}
-playGame()
- */   
+  
    </script> 
 </body>
 </html>
